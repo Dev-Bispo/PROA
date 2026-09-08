@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionais</title>
+
+    <script>
+        var numero1 = parseInt(prompt("insira um valor: "))
+        var numero2 = parseInt(prompt("insira um segundo valor diferente: "))
+        var numero3 = parseInt(prompt("insira um terceiro valor diferente: "))
+        var numero4 = parseInt(prompt("insira um quarto valor diferente: "))
+        var media = 0
+        if(numero1 ==  0 && 10 > numero1){
+            numero1 = parseInt(prompt("insira um valor maior que zero e menores que dez: "))
+        }else if(numero2 == 0 && 10 > numero2){
+            numero2 = parseInt(prompt("insira um valor maior que zero e menores que dez: "))
+        }else if(numero3 == 0 && 10 > numero3){
+            numero3 = parseInt(prompt("insira um valor maior que zero e menores que dez: "))
+        }else if(numero4 == 0 && 10 > numero4){
+            numero4 = parseInt(prompt("insira um valor maior que zero e menores que dez: "))
+        }
+      
+        
+        media = (numero1+numero2+numero3+numero4)/4
+
+        if(media > 5 ){ 
+            alert("Você passou no teste")
+        }else{
+            alert("Tente novamente")
+        }
+        
+    
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
