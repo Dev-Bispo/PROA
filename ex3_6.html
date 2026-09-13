@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var quantidade_aprovada = 0
+        function calcular_media() {
+
+
+
+
+
+
+            var numero1 = parseInt(prompt("Insira a primeira nota (0 a 10): "))
+            while (numero1 < 0) {
+                numero1 = parseInt(prompt("Insira um número válido( de 0 a 10)"))
+            }
+            if (numero1 > 0) {
+                var numero2 = parseInt(prompt("Insira a segunda nota (0 a 10): "))
+                while (numero2 < 0) {
+                    numero2 = parseInt(prompt("Insira um número válido( de 0 a 10)"))
+                }
+                if (numero2 > 0) {
+                    var numero3 = parseInt(prompt("Insira terceira nota (0 a 10): "))
+                    while( numero3 < 0){
+                        numero3 = parseInt(prompt("Insira um número válido( de 0 a 10)"))
+
+                    }
+
+                    if(numero3 > 0){
+                        var numero4 = parseInt(prompt("Insira quarta nota (0 a 10): "))
+                        while (numero4 < 0) {
+                                numero4 = parseInt(prompt("Insira um número válido( de 0 a 10)"))
+                        }if(numero4 > 0){
+                            var numero5 = parseInt(prompt("Insira quinta nota (0 a 10): "))
+                            while(numero5 < 0){
+                                numero5 = parseInt(prompt("Insira um número válido( de 0 a 10)"))
+                            }
+                            if(numero5 > 0){
+                                var numero6 = parseInt(prompt("Insira sexta nota (0 a 10): "))
+                                while(numero6 < 0){
+                                    numero6 = parseInt(prompt("Insira um número válido( de 0 a 10)"))
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+            }
+
+
+
+            var media = (numero1 + numero2 + numero3 + numero4 + numero5 + numero6) / 6
+            console.log(media)
+            return media
+        }
+
+        function home() {
+            var dados = calcular_media();
+            if (dados >= 9.5) {
+                alert("O aluno foi aprovado")
+                quantidade_aprovada += 1
+            } else {
+                alert("O aluno reprovou")
+            }
+            var confirmacao = prompt("Calcular a média de outro aluno? (S/N)")
+            if (confirmacao == "S") {
+                home()
+
+            } else if (confirmacao == "N") {
+                alert(quantidade_aprovada)
+
+            }
+        }
+
+        home()
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

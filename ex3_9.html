@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var numero1 = parseInt(prompt("Insira o primeiro valor: "))
+        while (numero1 < 0) {
+            numero1 = parseInt(prompt("Insira um número válido"))
+        }
+        if (numero1 > 0) {
+            var numero2 = parseInt(prompt("Insira o segundo valor : "))
+            while (numero2 < 0) {
+                numero2 = parseInt(prompt("Insira um número válido"))
+            }
+            if (numero2 > 0) {
+                var numero3 = parseInt(prompt("Insira o terceiro valor : "))
+                while (numero3 < 0) {
+                    numero3 = parseInt(prompt("Insira um número válido"))
+
+                }
+
+                if (numero3 > 0) {
+                    var numero4 = parseInt(prompt("Insira o quarto valor : "))
+                    while (numero4 < 0) {
+                        numero4 = parseInt(prompt("Insira um número válido"))
+                    } if (numero4 > 0) {
+                        var numero5 = parseInt(prompt("Insira o quinto valor : "))
+                        while (numero5 < 0) {
+                            numero5 = parseInt(prompt("Insira um número válido"))
+                        }
+                        if (numero5 > 0) {
+                            var numero6 = parseInt(prompt("Insira o sexto valor : "))
+                            while (numero6 < 0) {
+                                numero6 = parseInt(prompt("Insira um número válido"))
+                            } if (numero6 > 0) {
+                                var numero7 = parseInt(prompt("Insira o sétimo valor : "))
+                                while (numero7 < 0) {
+                                    numero7 = parseInt(prompt("Insira um número válido"))
+                                }
+
+                            } if (numero7 > 0) {
+                                var numero8 = parseInt(prompt("Insira o oitavo valor: "))
+                                while (numero8 < 0) {
+                                    numero8 = parseInt(prompt("Insira um número válido"))
+                                }
+
+                            } if (numero8 > 0) {
+                                var numero9 = parseInt(prompt("Insira o nono valor : "))
+                                while (numero9 < 0) {
+                                    numero9 = parseInt(prompt("Insira um número válido"))
+                                } if (numero9 > 0) {
+                                    var numero10 = parseInt(prompt("Insira o décimo valor : "))
+                                    while (numero10 < 0) {
+                                        numero10 = parseInt(prompt("Insira um número válido"))
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        }
+        var lista_valores = [numero1, numero2,numero3, numero4, numero5, numero6, numero7, numero8, numero9, numero10]
+        var lista_in_intervalo = []
+        var lista_out_intervalo = []
+
+        for(var i = 0; i <= 10; ++i){
+            if(lista_valores[i] >= 24 && lista_valores[i] <= 42){
+                lista_in_intervalo.push(lista_valores[i])
+            }else{
+                lista_out_intervalo.push(lista_valores[i])
+            }
+
+        }
+
+        alert(`os valores que estão dentro do intervalo são: ${lista_in_intervalo}`)
+        alert(`os valores que estão fora do intervalo são: ${lista_out_intervalo}`)
+        
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
