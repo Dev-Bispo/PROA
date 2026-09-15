@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var cadastrados = []
+        function Cadastrar(Estudante){
+            cadastrados.push(Estudante)
+        }
+        function Visualizar_Cadastro(){
+            alert(`Os alunos cadastrado ${cadastrados}`)
+        } 
+        function inicio(){
+            var mensagem = prompt("Cadastre um estudante: (caso deseja parar digite 'pare')");
+            
+            while(mensagem.toUpperCase() !== "PARE"){
+                mensagem = prompt("Cadastre um estudante: (caso deseja parar digite 'pare')")
+                if(mensagem.toUpperCase() !== "PARE"){
+                    Cadastrar(mensagem)
+                }
+                
+                
+            }
+            Visualizar_Cadastro()
+        }
+        
+
+        inicio()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

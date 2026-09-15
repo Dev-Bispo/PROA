@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var lista_frutas = ["Abacaxi", "Banana", "Manga", "Maracujá", "Mamão",
+            "Laranja", "Limão", "Tangerina", "Morango", "Cereja",
+            "Mirtilo", "Amora", "Maçã", "Pera", "Uva", "Melancia"]
+        alert(lista_frutas)
+        var fruta_escolha = prompt("Digite o nome de uma fruta para retirar da lista de compras")
+
+        while (fruta_escolha.toUpperCase() !== "PARE") {
+            if (lista_frutas.includes(fruta_escolha)) {
+                var lista_frutas_filtrada = lista_frutas.filter(f => f !== fruta_escolha)
+                Alert("Fruta foi retirada da lista")
+            }
+        }
+
+        alert(lista_frutas_filtrada)
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
