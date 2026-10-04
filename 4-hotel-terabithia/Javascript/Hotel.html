@@ -2,93 +2,59 @@
 
 <head>
 
-	<script>
-		var nomeHotel = "Novo Dia"
-		alert(`Bem-vindo ao ${nomeHotel}`)
-		var nomeUsuário = prompt(`Digite o seu nome`)
+	<script type="module">
+		import { menu } from "./Menu.js"
 
-		for (var i = 0; i <= 3; i++) {
-			var senha = prompt(`Digite a senha: `)
-			if (Login(senha) !== false) {
-				break
-			} else {
-				alert(`Senha incorreta`)
 
-			}
-		}
-
-		function menu() {
-			var escolha = parseInt(prompt('Selecione uma opção 1.) Reserva de Quartos 2.) Cadastro de Hóspedes 3.) Abastecimento de Carros 4.) Sair'));
-
-			switch (escolha){
-				case 1:
-					reserva_quartos()
-					break
-				case 2:
-					cadastro_hospedes()
-					break
-				case 3:
-					eventos()
-					break
-				case 4:
-					ar_condicionado()
-					break
-				case 5:
-					cadastro_hospedes()
-					break
-				case 6:
-					relatorio_operacionais()
-					break
-				case 7:
-					sair()
-					break
-				default:
-					erro()
-
-			}
-			
 		
+		var nomeHotel = "Novo Dia" //nome do hotel pode ser usado em diversas partes do código
+		var nomeUsuário = prompt(`Digite o seu nome`) // nome do usuário vai ser usado em mais partes do código
+		var auditorios = [
+				{"nome":"laranja", "cadeiras":150, "cadeira_extra":0,"estado": "disponivel"},
+				{"nome":"colorado", "cadeiras":350, "cadeira_extra":0,"estado": "disponivel"}
+			]
+		var n_convidados = 0
+		var n_duracao = 0
+	
+	
+
+		function inicio() {
+
+			alert(`Bem-vindo ao ${nomeHotel}`)
+
+
+			for (let tentativa = 1; tentativa <= 3; tentativa++) {
+				let senha = prompt(`Digite a senha: `)
+				console.log(tentativa)
+				if (tentativa == 4) {
+					alert(`Bloqueio. Quantidadede de tentativas excedeu`)
+					window.close()
+				}
+
+				if (Login(senha) !== false) {
+					menu()
+					break
+				} else {
+					alert(`Senha incorreta`)
+
+				}
+			}
 		}
+
 		function Login(senha) {
-			key = 2678
+			const key = 2678
 			if (senha == key) {
 				alert(`Bem-vindo ao Hotel ${nomeHotel}, ${nomeUsuário}. É um imenso prazer ter você por aqui!`)
-				menu()
+
 			} else {
 				return false
 			}
 		}
-		function reserva_quartos() {
-			alert(`HOTEL ${nomeHotel} - RESERVA DE QUARTOS`);
-			menu();
-		}
-
-		function cadastro_hospedes() {
-			alert(`HOTEL ${nomeHotel} - CADASTRO DE HÓSPEDES`);
-			menu();
-		}
-
-		function abastecer_carros() {
-			alert(`HOTEL ${nomeHotel} - ABASTECER`);
-			menu();
-		}
-
-		function erro() {
-			alert(`Por favor, informe um número entre 1 e 4`);
-			menu();
-		}
-
-		function sair() {
-			var confirma = confirm(`Você deseja sair?`);
-			if (confirma) {
-				alert(`Muito obrigado e até logo, ${nomeUsuário}.`)
-				window.close();
-			} else {
-				menu();
-			}
-		}
 
 
+		inicio()
+		
+		
 
 
 	</script>
