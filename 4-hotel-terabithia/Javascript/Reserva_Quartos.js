@@ -1,5 +1,7 @@
 import { quartos } from "./Quartos.js"
 import { menu } from "./Menu.js"
+import { nomeHotel } from "./Hotel.js"
+import { calculo_hospedagem } from "./Calculo_Hospedagem.js";
 
 
 function reserva_quartos() {
@@ -48,6 +50,7 @@ function reserva_quartos() {
 							}
 							alert(mapaquartos)
 							console.log(mapaquartos)
+							menu()
 
 
 

@@ -1,15 +1,23 @@
 
-function garcao(duracao, numero_convidados) {
-	let preco_garcao = 10.50
-	let reforco_duracao = duracao
+import { duracao } from "./Agenda.js"
+import { n_convidados } from "./Eventos.js"
 
-	reforco_duracao = Math.floor(reforco_duracao / 2)
-	numero_garcao = Math.ceil(numero_convidados / 12)
-	let total_garcao = numero_garcao + reforco_duracao
-	let total_valor = total_garcao * preco_garcao * duracao
+var preco_garcao = 10.50
+var reforco_duracao = 0
+var total_garcao = 0
+var total_valor_garcao = 0
+var numero_garcao = 0
 
-	alert(`Quantidade de garções: ${total_garcao}\n Valor: ${formacao_monetaria(total_valor)}`)
 
+function garcao() {
+
+	reforco_duracao = Math.floor(duracao / 2)
+	numero_garcao = Math.ceil(n_convidados / 12)
+	total_garcao = numero_garcao + reforco_duracao
+	total_valor_garcao = total_garcao * preco_garcao * duracao
+
+	//alert(`Quantidade de garções: ${total_garcao}\n Valor: ${total_valor_garcao}`)
+	return {total_garcao, total_valor_garcao} 
 
 }
 

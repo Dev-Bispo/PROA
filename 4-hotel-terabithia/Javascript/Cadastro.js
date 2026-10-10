@@ -1,9 +1,9 @@
 import { cadastrar_hospede } from "./Cadastrar_Hospede.js"
 import { pesquisa_prefixo } from "./Pesquisa_Prefixo.js"
 import { pesquisa_nome } from "./Pesquisa_Nome.js"
-import { listar_ordenado } from "./Lisatr_ordenado.js"
-import { atualizar_cadastro } from "./Atualizar_Cadastro.js"
-import { remover_cadastro } from "./Remover_Cadastro.js"
+//import { listar_ordenado } from "./Lista_ordenado.js"
+//import { atualizar_cadastro } from "./Atualizar_Cadastro.js"
+//import { remover_cadastro } from "./Remover_Cadastro.js"
 import { menu } from "./Menu.js"
 import { erro } from "./Erro.js"
 
