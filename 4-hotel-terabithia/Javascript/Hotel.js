@@ -2,7 +2,7 @@ import { menu } from "./Menu.js"
 
 
 var nomeHotel = "Novo Dia" //nome do hotel pode ser usado em diversas partes do código
-var nomeUsuário = prompt(`Digite o seu nome`) // nome do usuário vai ser usado em mais partes do código
+var nomeUsuario = prompt(`Digite o seu nome`) // nome do usuário vai ser usado em mais partes do código
 
 
 
@@ -33,7 +33,7 @@ function inicio() {
 function Login(senha) {
 	const key = 2678
 	if (senha == key) {
-		alert(`Bem-vindo ao Hotel ${nomeHotel}, ${nomeUsuário}. É um imenso prazer ter você por aqui!`)
+		alert(`Bem-vindo ao Hotel ${nomeHotel}, ${nomeUsuario}. É um imenso prazer ter você por aqui!`)
 
 	} else {
 		return false
@@ -41,6 +41,6 @@ function Login(senha) {
 }
 
 
-export { inicio, nomeHotel }
+export { inicio, nomeHotel, nomeUsuario }
 
 

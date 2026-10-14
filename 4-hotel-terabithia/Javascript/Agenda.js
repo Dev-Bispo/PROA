@@ -7,6 +7,7 @@ var hora_inicial = ""
 var duracao = ""
 var nome_empresa = ""
 var status = ""
+var aceitar = ""
 function agenda() {
 	alert("O auditório está disponível para reservas de segunda a sexta das 7hs às 23hs; \nsábados e domingos apenas das 7hs às 15hs.")
 	dia = prompt("Digite o dia da semana para reservar: ").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase()
@@ -28,7 +29,8 @@ function agenda() {
 
 
 	}
-	if (prompt("Deseja realizar a reserva?(s/n)").toLocaleLowerCase() == 's') {
+	aceitar = prompt("Deseja realizar a reserva?(s/n)")
+	if (aceitar.toLocaleLowerCase() == 's') {
 		switch (sugestao) {
 			case "laranja":
 				if (auditorios[0].estado == "disponivel") {

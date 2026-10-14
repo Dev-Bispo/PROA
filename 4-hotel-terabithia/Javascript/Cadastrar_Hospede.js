@@ -1,4 +1,5 @@
-import { cadastro } from "./Cadastro.js" 
+import { cadastro, cadastrados } from "./Cadastro.js" 
+var contador_hospede = 0 
 function cadastrar_hospede() {
 	let conjunto = []
 	let adicao = ""
@@ -24,27 +25,18 @@ function cadastrar_hospede() {
 
 			}
 		}
-		if (conjunto.length > 0) {
-			for (let j = 0; j < conjunto.length; j++) {
-				if (conjunto[j].includes(pessoa)) {
-					alert(`Hóspede ${pessoa} já cadastrado`)
-					console.log("foi")
-					continue externo
-
-				}
-
-
-
-			}
-		}
+		
 
 
 		conjunto.push(pessoa)
 		adicao = prompt(`deseja adicionar mais hospedes(s/n)?`)
 		if (adicao.toLocaleLowerCase() == "s") {
+			
 			continue
 		} else if (adicao.toLocaleLowerCase() == "n") {
+			contador_hospede = conjunto.length
 			cadastrados.push(conjunto)
+			
 			alert("Hospedes cadastrados")
 			cadastro()
 			break externo

@@ -3,13 +3,14 @@ import { menu } from "./Menu.js"
 import { nomeHotel } from "./Hotel.js"
 import { calculo_hospedagem } from "./Calculo_Hospedagem.js";
 
+var contador = 0 
 
 function reserva_quartos() {
 	alert(`HOTEL ${nomeHotel} - RESERVA DE QUARTOS`);
 	let diaria = parseInt(prompt(`Informe o valor da diária: `))
 	let dias = parseInt(prompt(`Informe a quantidade de diárias: `))
 	let contador = [] //pode ser usado em diversas situções 
-	let listaquartos = quartos()
+	let listaquartos = quartos
 	let linha_q = []
 	let mapaquartos = ``
 
@@ -39,6 +40,7 @@ function reserva_quartos() {
 							listaquartos[numero - 1].total = total_final
 
 							alert(`Reserva efetuada com sucesso.`)
+							contador += 1
 							for (let locacao = 0; locacao < listaquartos.length; locacao++) {
 
 								linha_q.push(listaquartos[locacao].disponibilidade)

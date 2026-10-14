@@ -1,6 +1,6 @@
 
-function quartos() {
-	let quartos = [
+
+let quartos = [
 		{ "numero": 1, "disponibilidade": "L", "hospede": "vazio", "dias": 0, "diaria": 0, "total": 0 },
 		{ "numero": 2, "disponibilidade": "L", "hospede": "vazio", "dias": 0, "diaria": 0, "total": 0 },
 		{ "numero": 3, "disponibilidade": "L", "hospede": "vazio", "dias": 0, "diaria": 0, "total": 0 },
@@ -23,8 +23,6 @@ function quartos() {
 		{ "numero": 20, "disponibilidade": "L", "hospede": "vazio", "dias": 0, "diaria": 0, "total": 0 },
 	]
 
-	return quartos
 
-}
 
 export { quartos }
