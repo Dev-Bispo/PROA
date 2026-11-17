@@ -7,7 +7,7 @@ class BichinhoVirtual {
     int nivelFelicidade = 50;
 
     // Construtor para inicializar o nome do bicho
-    public Bicho(String nome) {
+    public BichinhoVirtual(String nome) {
         this.nome = nome;
     }
 

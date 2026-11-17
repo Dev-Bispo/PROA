@@ -446,11 +446,38 @@ select categoria, count(categoria) as edicoes_categoria from indicados_ao_oscar 
 ```
 
 **2.4** A partir de que ano a categoria "ACTRESS" deixou de existir? (Dica: procure a última cerimônia com essa categoria)
+```sql
+select indicados_ao_oscar.categoria,
+ indicados_ao_oscar.ano_filmagem from indicados_ao_oscar
+where categoria='ACTRESS'
+order by ano_filmagem desc limit 1 ;
+```
+R:ACTRESS	1975
 
 **2.5** Quais categorias existiam na primeira cerimônia (1928) e não existem mais hoje?
+```sql
+select distinct i.categoria from indicados_ao_oscar i 
+where i.ano_filmagem = 1928 and i.categoria not in (select i.categoria from indicados_ao_oscar i
+where i.ano_filmagem = 2026);
+```
+
+R:ACTOR
+ACTRESS
+ART DIRECTION
+CINEMATOGRAPHY
+DIRECTING
+OUTSTANDING PICTURE
+WRITING
 
 **2.6** Liste todas as categorias que contêm a palavra "DIRECTING" no nome.
+```sql
+select distinct i.categoria from indicados_ao_oscar i
+where i.categoria like 'Directing%';
+```
 
+R:DIRECTING (Comedy Picture)
+DIRECTING (Dramatic Picture)
+DIRECTING
 ---
 
 ## Nível 3: Atores e Atrizes Famosos
@@ -458,13 +485,37 @@ select categoria, count(categoria) as edicoes_categoria from indicados_ao_oscar 
 ### Natalie Portman
 
 **3.1** Quantas vezes Natalie Portman foi indicada ao Oscar?
-
+```sql
+select count(i.nome_indicado) as quantidade_indicacao from indicados_ao_oscar i
+where i.nome_indicado like 'Natalie Portman%' 
+```
+R:3
 **3.2** Quantos Oscars Natalie Portman ganhou?
-
+```sql
+select count(i.nome_indicado) as quantidade_indicacao from indicados_ao_oscar i
+where i.nome_indicado like 'Natalie Portman%' and i.vencedor = true
+```
+R:1
 **3.3** Em quais anos e por quais filmes Natalie Portman foi indicada?
+```sql
+
+select count(i.nome_indicado)  as quantidade_indicacao, i.ano_filmagem as ano_filmagem, i.nome_filme as filme from indicados_ao_oscar i
+where i.nome_indicado like 'Natalie Portman%' and i.vencedor = true
+group by ano_filmagem, filme;
+```
+R:1	2010	Black Swan
 
 **3.4** Liste todas as indicações de Natalie Portman mostrando: ano, categoria, filme e se venceu.
-
+```sql
+select i.nome_indicado as quantidade_indicacao, 
+i.ano_filmagem as ano_filmagem,
+ i.nome_filme as filme,
+ i.vencedor from indicados_ao_oscar i
+where i.nome_indicado = 'Natalie Portman' ;
+```
+R:Natalie Portman	2004	Closer	0
+Natalie Portman	2010	Black Swan	1
+Natalie Portman	2016	Jackie	0
 ### Viola Davis
 
 **3.5** Quantas vezes Viola Davis foi indicada ao Oscar?
@@ -488,51 +539,229 @@ vencedor = true;
 ```
 
 **3.7** Por quais filmes Viola Davis foi indicada?
-
+```sql
+select i.nome_filme from indicados_ao_oscar i
+where i.nome_indicado like 'Viola Davis%'
+```
+R:Doubt
+The Help
+Fences
+Ma Rainey's Black Bottom
 ### Amy Adams
 
 **3.8** Amy Adams já ganhou algum Oscar?
+```sql
+select 
+case 
+when exists(
+select i.nome_indicado from indicados_ao_oscar i
+where i.nome_indicado like 'Amy Adams' 
+and i.vencedor = true) then 'True' else 'False' end as ganhou_oscar;
+```
 
+R:False
 **3.9** Quantas vezes Amy Adams foi indicada sem ganhar?
-
+```sql
+select count(i.nome_indicado) as indicacoes from indicados_ao_oscar i
+where i.vencedor = false and i.nome_indicado like 'Amy Adams' 
+```
+R:6
 ### Denzel Washington
 
 **3.10** Denzel Washington já ganhou algum Oscar?
+```sql
+select
+case
+ when exists(
+ select i.nome_indicado from indicados_ao_oscar i
+ where  i.nome_indicado like 
+ 'Denzel Washington' and i.vencedor = true ) 
+ then 'True' else 'False'
+ end as ganhou_oscar;
+```
+R:True
 
 **3.11** Quantas vezes Denzel Washington foi indicado ao Oscar?
-
+```sql
+ select count(i.nome_indicado) from indicados_ao_oscar i
+ where i.nome_indicado like 
+ 'Denzel Washington';
+```
+R:9
 **3.12** Liste todos os Oscars que Denzel Washington ganhou (ano, categoria, filme).
-
+```sql
+ select i.nome_indicado as quantidade_indicacao, 
+i.ano_filmagem as ano_filmagem,
+ i.nome_filme as filme,
+ i.vencedor from indicados_ao_oscar i
+where i.nome_indicado = 'Denzel Washington' and i.vencedor = true ;
+```
+R:Denzel Washington	1989	Glory	1
+Denzel Washington	2001	Training Day	1
 ---
 
 ## Nível 4: Vencedores Históricos
 
 **4.1** Quem ganhou o primeiro Oscar para Melhor Atriz (ACTRESS)? Em que ano e por qual filme?
+```sql
+select i.nome_indicado,
+i.nome_filme,
+i.ano_filmagem from indicados_ao_oscar i
+where i.categoria = 'ACTRESS'
+order by i.ano_filmagem desc limit 1
+```
+R:Carol Kane	Hester Street	1975
 
 **4.2** Quem ganhou o primeiro Oscar para Melhor Ator (ACTOR)? Em que ano e por qual filme?
+```sql
+select i.nome_indicado,
+i.nome_filme,
+i.ano_filmagem from indicados_ao_oscar i
+where i.categoria = 'ACTOR'
+order by i.ano_filmagem desc limit 1
+```
+R:James Whitmore	Give 'em Hell, Harry!	1975
 
 **4.3** Quantos vencedores existem ao todo na base de dados?
-
+```sql
+select count(distinct i.nome_indicado) as vencedores from indicados_ao_oscar i
+where i.vencedor = true;
+```
+R:2079
 **4.4** Liste todos os filmes que ganharam o Oscar de Melhor Filme (categoria "OUTSTANDING PICTURE" ou "BEST PICTURE").
-
+```sql
+select i.nome_filme from indicados_ao_oscar i
+where i.categoria in ('OUTSTANDING PICTURE', 'BEST PICTURE') and i.vencedor = true;
+```
+R:Wings
+The Broadway Melody
+Lawrence of Arabia
+Tom Jones
+My Fair Lady
+The Sound of Music
+A Man for All Seasons
+In the Heat of the Night
+Oliver!
+Midnight Cowboy
+Patton
+The French Connection
+The Godfather
+The Sting
+The Godfather Part II
+One Flew over the Cuckoo's Nest
+Rocky
+Annie Hall
+The Deer Hunter
+Kramer vs. Kramer
+Ordinary People
+Chariots of Fire
+Gandhi
+Terms of Endearment
+Amadeus
+Out of Africa
+Platoon
+The Last Emperor
+Rain Man
+Driving Miss Daisy
+Dances With Wolves
+The Silence of the Lambs
+Unforgiven
+Schindler's List
+Forrest Gump
+Braveheart
+The English Patient
+Titanic
+Shakespeare in Love
+American Beauty
+Gladiator
+A Beautiful Mind
+Chicago
+The Lord of the Rings: The Return of the King
+Million Dollar Baby
+Crash
+The Departed
+No Country for Old Men
+Slumdog Millionaire
+The Hurt Locker
+The King's Speech
+The Artist
+Argo
+12 Years a Slave
+Birdman or (The Unexpected Virtue of Ignorance)
+Spotlight
+Moonlight
+The Shape of Water
+Green Book
+Parasite
+Nomadland
+CODA
+Everything Everywhere All at Once
+Oppenheimer
 **4.5** Quantos filmes diferentes já ganharam o Oscar?
-
+```sql
+select count(distinct i.nome_filme) as quantidade from indicados_ao_oscar i
+where i.vencedor = true
+```
+R:1338
 ---
 
 ## Nível 5: Análise de Indicações
 
 **5.1** Quais atores/atrizes foram indicados mais de uma vez? Liste o nome e o número de indicações.
+```sql
+
+select i.nome_indicado, count(i.nome_indicado) as quantidade_indicacao from indicados_ao_oscar i
+group by i.nome_indicado
+having count(i.nome_indicado) > 1
+
+```
 
 **5.2** Qual ator ou atriz tem o maior número de indicações na história do Oscar?
+```sql
+select i.nome_indicado, count(i.nome_indicado) as quantidade_indicacao from indicados_ao_oscar i
+group by i.nome_indicado
+order by quantidade_indicacao desc limit 1
+```
+R:Metro-Goldwyn-Mayer	64
 
 **5.3** Quais atores foram indicados mais de 3 vezes, mas nunca ganharam?
+```sql
 
+select i.nome_indicado, count(i.nome_indicado) as quantidade_indicacao from indicados_ao_oscar i
+group by i.nome_indicado
+having count(i.nome_indicado) > 3
+and sum(case when i.vencedor = true then 1 else 0 end) = 0 ;
+```
 **5.4** Encontre todos os artistas que foram indicados em categorias diferentes (ex: ator e diretor).
-
+```sql
+select i.nome_indicado, 
+count(distinct i.categoria) as quantidade_categorias from indicados_ao_oscar i
+group by i.nome_indicado
+having count(distinct i.categoria) > 1
+```
 **5.5** Quantos indicados têm exatamente 1 indicação na história?
+```sql
+
+
+ with quantidade_indicado as (
+ select i.nome_indicado as nome_indicado,
+ count(i.nome_indicado) from indicados_ao_oscar i
+ group by i.nome_indicado
+ having count(i.nome_indicado) like 1
+ )
+ 
+ select count(qi.nome_indicado) as quantidade_indicados_uma_vez from quantidade_indicado qi
+```
+R:5574
 
 **5.6** Qual o maior números de indicados em um único ano? Essa é uma pergunta franca.  
-
+```sql
+ select count(i.nome_indicado) as  quantidade_indicados, 
+ i.ano_filmagem from indicados_ao_oscar i
+ group by  i.ano_filmagem
+ order by count(i.nome_indicado) desc limit 1
+```
+R:240	2024
 ---
 
 ## Nível 6: Análise de Filmes
@@ -540,25 +769,76 @@ vencedor = true;
 ### Toy Story
 
 **6.1** A série de filmes Toy Story ganhou Oscars em quais anos?
-
+```sql
+ select i.nome_filme as nome_filme,
+ ano_filmagem from indicados_ao_oscar i
+ where i.nome_filme like 'Toy Story%' and i.vencedor = true
+```
+R:Toy Story 3	2010
+Toy Story 3	2010
+Toy Story 4	2019
 **6.2** Quantas indicações a franquia Toy Story recebeu no total?
-
+```sql
+  select count(i.nome_filme) as nome_filme 
+  from indicados_ao_oscar i
+ where i.nome_filme like 'Toy Story%' 
+```
+R:11
 **6.3** Em quais categorias os filmes Toy Story foram indicados?
-
+```sql
+select i.categoria as categoria_filme
+from indicados_ao_oscar i
+where i.nome_filme like 'Toy Story%';
+```
+R:MUSIC (Original Musical or Comedy Score)
+MUSIC (Original Song)
+WRITING (Screenplay Written Directly for the Screen)
+MUSIC (Original Song)
+ANIMATED FEATURE FILM
+MUSIC (Original Song)
+BEST PICTURE
+SOUND EDITING
+WRITING (Adapted Screenplay)
+ANIMATED FEATURE FILM
+MUSIC (Original Song)
 ### Crash
 
 **6.4** Em qual edição do Oscar o filme "Crash" concorreu?
-
+```sql
+select i.edicao_cerimonia from indicados_ao_oscar i
+where i.nome_filme = 'Crash'
+group by i.edicao_cerimonia
+```
+R:78
 **6.5** Quantas indicações o filme "Crash" recebeu?
-
+```sql
+select count(i.nome_filme) as quantidade_indicacao
+ from indicados_ao_oscar i
+where i.nome_filme = 'Crash'
+```
+R:6
 **6.6** "Crash" ganhou o Oscar de Melhor Filme?
+```sql
+select case when exists ( select i.nome_filme as quantidade_indicacao,
+i.categoria
+ from indicados_ao_oscar i
+where i.nome_filme = 'Crash' and i.categoria = 'BEST PICTURE') then 'True' else 'False' end as ganhou_oscar;
 
+```
+R:True
 ### Central do Brasil
 
 **6.7** O filme "Central do Brasil" aparece no banco de dados?
+```sql
 
+select case when exists ( select i.nome_filme as quantidade_indicacao,
+i.categoria
+ from indicados_ao_oscar i
+where i.nome_filme = 'Central do Brasil') then 'True' else 'False' end as filme_indicado
+```
+R:False
 **6.8** Se sim, quantas indicações "Central do Brasil" recebeu?
-
+```sql```
 ---
 
 ## Nível 7: Operações de Atualização
