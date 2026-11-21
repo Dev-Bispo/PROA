@@ -105,7 +105,9 @@ hospedagens   ||--o{ pagamentos     : "gera"
 
 -- Quais outros relacionamentos existem?
 -- Como os serviços se conectam às hospedagens?
+    
 -- Como os funcionários se conectam às hospedagens?
+   eles se conectam apartir da tabela reserva
 -- Onde ficam os feedbacks?
 ```
 

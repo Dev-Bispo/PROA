@@ -79,8 +79,48 @@ Criar consultas que respondam perguntas como:
 
 - quais quartos estão disponíveis em determinado período?
 - quais hóspedes mais realizaram reservas?
+
+```sql
+select h.nome,f.fk_reservas_id_reservas  from hospedes h
+join faz f
+on h.id_hospede = f.fk_hospedes_id_hospede;
+```
+
 - qual foi o faturamento por mês?
+```sql
+select sum(valor_total) from (select p.fk_hospedes_id_hospede, f.fk_reservas_id_reservas, r.valor_total from pagamentos p
+join faz f
+on f.fk_hospedes_id_hospede = p.fk_hospedes_id_hospede
+join reservas r
+on r.id_reservas = f.fk_reservas_id_reservas
+where p.status_pagamentos = 'APROVADO') as sub;
+```
 - quais serviços extras são mais consumidos?
+```sql
+select max(hs.quantidade) as quantidade, s.nome from hospedes_servicos hs
+join servicos s
+on s.id_servico = hs.fk_servicos_id_servico
+group by s.nome
+order by quantidade desc limit 2
+```
 - quais quartos receberam melhores avaliações?
+```sql
+select q.tipo_quarto, q.numero_quarto, f.nota from quartos q
+join feedbacks f
+on q.id_quarto = f.fk_quartos_id_quarto
+where f.nota = 5
+```
 - quais reservas foram canceladas?
+```sql
+select * from reservas
+where status_reserva = 'CANCELADA';
+```
 - quantas hospedagens cada profissional atendeu?
+```sql
+select pf.nome,
+ count(h.fk_profissionais_funcionarios_id_funcionarios) as hospedagens_atendidas
+ from profissionais_funcionarios pf
+ join hospedagens h
+ on h.fk_profissionais_funcionarios_id_funcionarios = pf.id_funcionarios
+ group by pf.nome
+```
