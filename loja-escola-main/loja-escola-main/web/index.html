@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Descubra invenções impossíveis para deixar o cotidiano mais extraordinário na Loja Impossível.">
+  <meta property="og:title" content="Loja Impossível — invenções fora do comum">
+  <meta property="og:description" content="Uma coleção de ideias que não deveriam existir, mas cabem na imaginação.">
+  <meta property="og:type" content="website">
+  <title>Loja Impossível | Invenções fora do comum</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+  <header class="site-header"><nav class="navbar navbar-expand-lg" aria-label="Navegação principal"><div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">✳ Loja Impossível</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="menuPrincipal"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Invenções</a></li><li class="nav-item"><a class="nav-link" href="checkout.html">Meu pedido</a></li></ul></div>
+  </div></nav></header>
+  <main id="conteudo">
+    <section class="hero"><div class="container"><p class="eyebrow mb-2">Objetos impossíveis, ideias possíveis</p><h1>O extraordinário<br>mora nas pequenas coisas.</h1><p class="lead">Invenções que desafiam o tamanho, o tempo e a gravidade — criadas para um mundo com mais imaginação.</p><a class="btn btn-light mt-3" href="#catalogo">Explorar invenções</a></div></section>
+    <section class="container py-5" id="catalogo" aria-labelledby="titulo-produtos">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4"><div><p class="eyebrow mb-1">Coleção 01 · 2026</p><h2 id="titulo-produtos">Peças de outro mundo</h2><p class="text-secondary mb-0">Toda invenção tem uma regra própria. Qual combina com você?</p></div>
+      <div class="row g-2 w-100 mt-2"><div class="col-sm-6 col-lg"><label for="filtroProduto" class="form-label">Buscar invenção</label><input id="filtroProduto" class="form-control" type="search" placeholder="Nome ou categoria" autocomplete="off"></div><div class="col-sm-6 col-lg"><label for="filtroCategoria" class="form-label">Categoria</label><select id="filtroCategoria" class="form-select"><option value="">Todas as categorias</option><option>Clima portátil</option><option>Cosmos doméstico</option><option>Luz de sonho</option><option>Clima de interior</option><option>Miniatura científica</option><option>Tempo elástico</option></select></div><div class="col-sm-6 col-lg"><label for="filtroRegra" class="form-label">Regra criativa</label><select id="filtroRegra" class="form-select"><option value="">Todas as regras</option><option>Cabe em um bolso</option><option>Usado no espaço sideral</option><option>De uso único e começa com Z</option><option>Não cabe em um avião</option><option>Serve em uma formiga</option></select></div><div class="col-sm-6 col-lg"><label for="ordenacao" class="form-label">Ordenar por</label><select id="ordenacao" class="form-select"><option value="destaque">Destaque</option><option value="nome">Nome</option><option value="preco-menor">Menor preço</option><option value="preco-maior">Maior preço</option></select></div></div></div>
+      <div class="row g-4" id="listaProdutos" aria-live="polite"></div>
+      <p id="mensagemFiltro" class="mt-4" role="status" aria-live="polite"></p>
+    </section>
+    <section class="container pb-5"><div class="learning-note"><p class="eyebrow mb-2">Uma loja de faz de conta</p><p class="mb-0">Os produtos e preços são fictícios. Esta experiência é um projeto educacional e não realiza cobranças.</p></div></section>
+  </main>
+  <footer class="site-footer"><div class="container d-flex flex-wrap justify-content-between gap-2"><p class="mb-0">Loja Impossível · Imaginação em forma de invenção.</p><a href="index.html">Voltar ao início</a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script><script src="js/catalog.js" defer></script><script src="js/main.js" defer></script>
+</body>
+</html>
+
