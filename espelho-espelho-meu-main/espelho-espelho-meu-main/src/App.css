@@ -1,0 +1,79 @@
+﻿.app { min-height: 100vh; padding-bottom: 36px; }
+.header { height: 72px; padding: 0 max(24px, calc((100vw - 1120px) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 28px; background: #fff; border-bottom: 1px solid #e8e9e6; position: sticky; top: 0; z-index: 5; }
+.header__logo { display: inline-flex; align-items: center; gap: 9px; font-family: Manrope, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -1.2px; white-space: nowrap; }
+.logo-mark { width: 34px; height: 34px; display: grid; place-items: center; color: white; background: #d9532b; border-radius: 10px 10px 10px 3px; font-size: 20px; font-weight: 800; }
+.logo-period { margin-left: -9px; color: #d9532b; }
+.header__search { width: min(360px, 38vw); height: 42px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border-radius: 8px; background: #f4f5f3; color: #788078; }
+.header__search svg { flex: none; font-size: 18px; }
+.header__search input { width: 100%; border: 0; outline: 0; background: transparent; color: #20231f; font-size: 14px; }
+.header__search input::placeholder { color: #8b9189; }
+.header__actions { display: flex; align-items: center; gap: 18px; }
+.icon-button { width: 36px; height: 36px; display: grid; place-items: center; border: 0; background: transparent; color: #343a34; cursor: pointer; font-size: 22px; transition: color .18s, transform .18s; }
+.icon-button:hover { color: #d9532b; transform: translateY(-1px); }
+.page-content { width: min(100% - 40px, 720px); margin: 36px auto 0; }
+.welcome-card { min-height: 190px; padding: 30px 36px; display: flex; align-items: center; justify-content: space-between; overflow: hidden; position: relative; border-radius: 14px; color: #fff; background: linear-gradient(112deg, #222a25 0%, #333e36 63%, #4a524b 100%); }
+.welcome-card::after { content: ''; position: absolute; width: 280px; height: 280px; top: -145px; right: -55px; border: 1px solid rgb(255 255 255 / 12%); border-radius: 50%; box-shadow: 0 0 0 28px rgb(255 255 255 / 3%), 0 0 0 56px rgb(255 255 255 / 3%); }
+.welcome-card > div:first-child { position: relative; z-index: 1; }
+.eyebrow { color: #d9532b; font-size: 11px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; }
+.welcome-card .eyebrow { color: #ff9b7e; }
+.welcome-card h1 { max-width: 470px; margin: 10px 0 8px; font: 800 clamp(25px, 4vw, 34px)/1.18 Manrope, sans-serif; letter-spacing: -1.3px; }
+.welcome-card h1 span { color: #ff8a68; }
+.welcome-card p { margin: 0; color: #cbd0cb; font-size: 14px; }
+.welcome-mark { margin-right: 35px; color: rgb(255 255 255 / 8%); font: 800 150px/.8 Manrope, sans-serif; transform: skew(-10deg); }
+.feed-heading { margin: 32px 0 15px; display: flex; align-items: end; justify-content: space-between; }
+.feed-heading h2 { margin: 4px 0 0; font: 800 20px Manrope, sans-serif; letter-spacing: -.5px; }
+.post-count { color: #7d847d; font-size: 12px; }
+.feed { display: grid; gap: 18px; }
+.post { overflow: hidden; border: 1px solid #e7e9e5; border-radius: 12px; background: #fff; box-shadow: 0 4px 18px rgb(31 40 32 / 4%); }
+.post__header { min-height: 66px; padding: 12px 16px; display: flex; align-items: center; gap: 11px; }
+.post__avatar { width: 40px; height: 40px; object-fit: cover; border-radius: 50%; background: #e6e9e4; }
+.post__user { display: grid; gap: 3px; }
+.post__user strong { font-size: 13px; }
+.post__user span { color: #868c85; font-size: 11px; }
+.post__more { margin-left: auto; color: #7e847e; }
+.post__photo-wrap { position: relative; background: #e6e9e4; }
+.post__image { width: 100%; max-height: 500px; aspect-ratio: 1.5 / 1; display: block; object-fit: cover; }
+.post__car-label { position: absolute; left: 14px; bottom: 14px; padding: 7px 11px; border: 1px solid rgb(255 255 255 / 30%); border-radius: 6px; background: rgb(24 29 25 / 78%); color: #fff; font-size: 11px; font-weight: 700; backdrop-filter: blur(8px); }
+.post__content { padding: 12px 16px 14px; }
+.post__actions { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.post__actions .icon-button { width: 30px; height: 30px; }
+.post__actions .post__save { margin-left: auto; }
+.like-button.is-liked { color: #db493d; }
+.like-button.is-liked svg { fill: #db493d; }
+.post__likes { margin: 0 0 7px; font-size: 13px; }
+.post__caption { margin: 0; font-size: 13px; line-height: 1.5; }
+.post__caption > strong { margin-right: 4px; }
+.post__car-name { color: #d9532b; font-weight: 700; }
+.comments { display: grid; gap: 5px; margin-top: 10px; }
+.comment { margin: 0; color: #505650; font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+.comment strong { margin-right: 4px; color: #252a25; }
+.comment-form { display: flex; align-items: center; gap: 12px; margin-top: 12px; padding-top: 11px; border-top: 1px solid #eff0ed; }
+.comment-form input { flex: 1; min-width: 0; border: 0; outline: 0; color: #252a25; font-size: 12px; }
+.comment-form input::placeholder { color: #969c95; }
+.comment-form button { padding: 5px 0 5px 8px; border: 0; background: transparent; color: #d9532b; font-size: 12px; font-weight: 700; cursor: pointer; }
+.comment-form button:disabled { color: #c4c8c2; cursor: default; }
+.empty-state { padding: 28px; border: 1px solid #e7e9e5; border-radius: 12px; background: #fff; color: #737a73; text-align: center; }
+.mobile-nav { display: none; }
+.sr-only { width: 1px; height: 1px; overflow: hidden; position: absolute; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+@media (max-width: 640px) {
+  .app { padding-bottom: 68px; }
+  .header { height: 60px; padding: 0 16px; gap: 12px; }
+  .header__logo { font-size: 19px; }
+  .logo-mark { width: 30px; height: 30px; }
+  .header__search { width: auto; flex: 1; height: 36px; padding: 0 10px; }
+  .header__search input { font-size: 12px; }
+  .header__actions { display: none; }
+  .page-content { width: 100%; margin: 0 auto; }
+  .welcome-card { min-height: 170px; margin: 14px 14px 0; padding: 24px 20px; border-radius: 12px; }
+  .welcome-mark { position: absolute; right: -4px; bottom: 22px; margin: 0; font-size: 112px; }
+  .welcome-card h1 { max-width: 320px; font-size: 27px; }
+  .welcome-card p { max-width: 245px; font-size: 12px; }
+  .feed-heading { margin: 25px 16px 12px; }
+  .feed-heading h2 { font-size: 18px; }
+  .feed { gap: 12px; }
+  .post { border-right: 0; border-left: 0; border-radius: 0; }
+  .post__image { aspect-ratio: 1.22 / 1; }
+  .post__content { padding-right: 15px; padding-left: 15px; }
+  .mobile-nav { height: 58px; padding-bottom: env(safe-area-inset-bottom); display: flex; align-items: center; justify-content: space-around; position: fixed; z-index: 5; right: 0; bottom: 0; left: 0; border-top: 1px solid #e8e9e6; background: rgb(255 255 255 / 96%); backdrop-filter: blur(12px); }
+  .mobile-nav a, .mobile-nav button { width: 42px; height: 42px; display: grid; place-items: center; border: 0; background: transparent; color: #343a34; font-size: 21px; }
+}
